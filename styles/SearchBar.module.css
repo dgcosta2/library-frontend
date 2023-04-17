@@ -1,0 +1,33 @@
+
+.searchform {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.searchBox {
+    width: 60%;
+    height: 40px;
+    border-style: none;
+    border-bottom-style: groove;
+}
+
+.searchBox:focus {
+    outline: none;
+}
+
+.submit {
+    border-radius: 1px;
+    border-color: #333;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    margin-left: 10px;
+    height: 40px;
+    width: 70px;
+}
+
+.submit:hover {
+    background-color: #333;
+    color: white;
+}
