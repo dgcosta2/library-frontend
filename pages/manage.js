@@ -2,6 +2,9 @@
 const manage = () => {
     return (
         <>
+            <h2>Add Member</h2>
+
+            <h2>Add Title</h2>
 
         </>
     )
