@@ -1,23 +1,13 @@
-import {useEffect, useState} from "react";
-import CatalogSearch from "@/components/CatalogSearch";
-import data from "@/data/data";
-import {useForm} from "react-hook-form";
-import styles from "@/styles/SearchBar.module.css";
+import styles from '@/styles/SearchBar.module.css';
+import { useForm } from 'react-hook-form';
+import {useState} from "react";
 import BookCard from "@/components/BookCard";
-const Catalog = () => {
-    const { register, handleSubmit, errors, reset} = useForm();
-    const [searchField, setSearchField] = useState("");
-    const [titleList, setTitleList] = useState([]);
-    const [memberList, setMemberList] = useState([]);
 
-    useEffect(() => {
-        data.titles()
-            .then((data) => {
-                    setTitleList(data);
-                    console.log(data);
-                }
-            )
-        }, []);
+const CatalogSearch = (props) => {
+    const { register, handleSubmit, errors, reset} = useForm();
+    const [searchField, setSearchField] = useState(props.query);
+    const [titleList, setTitleList] = useState(props.titles);
+
     const handleChange = (e) => {
         setSearchField(e.target.value);
     }
@@ -32,6 +22,16 @@ const Catalog = () => {
             )
         }
     ): [];
+    // )) titles? titles.filter(
+    //     title => {
+    //         return (
+    //             title.name.toLowerCase()
+    //                 .includes(searchField.toLowerCase()) ||
+    //             title.author.toLowerCase()
+    //                 .includes(searchField.toLowerCase())
+    //         )
+    //     }
+    // ) : titles;
 
     return (
         <>
@@ -47,7 +47,6 @@ const Catalog = () => {
             </div>
         </>
     )
-
 }
 
-export default Catalog;
+export default CatalogSearch;

@@ -8,11 +8,13 @@
 
 header {
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background-color: rgb(152, 178, 246);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 h1 {
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
 }

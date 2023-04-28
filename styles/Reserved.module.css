@@ -1,0 +1,27 @@
+.reserved_image{
+    width: 30px;
+    height: 30px;
+    object-fit: scale-down;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.p_book_reserved{
+    width: 130px;
+}
+
+.renew_button {
+    margin-top: 5px;
+    width: 90px;
+    height: 30px;
+    background-color: #98b2f6;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.renew_button:hover {
+    background-color: #333;
+    color: white;
+}
