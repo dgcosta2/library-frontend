@@ -8,7 +8,7 @@
 
 header {
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
-    background-color: rgb(152, 178, 246);
+    background-color: #cee4fe;
     display: flex;
     align-items: center;
     justify-content: space-between;
