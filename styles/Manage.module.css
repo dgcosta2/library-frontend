@@ -9,11 +9,28 @@
     padding: 20px;
     border-radius: 10px;
 }
-
+.form_input label {
+    margin-bottom: 5px;
+}
 .form_input input {
-    text-decoration: none;
+    text-transform: none;
+    width: 80vh;
+    height: 5vh;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    padding-left: 10px;
 }
 
-.form_submit {
+.form_submit input{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #cee4fe;
+    cursor: pointer;
+    border-style: none;
+}
 
+.form_submit input:hover {
+    background-color: #333;
+    color: white;
 }

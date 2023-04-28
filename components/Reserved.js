@@ -67,13 +67,15 @@ const Reserved = (props) => {
 
     if (props.title.reserveStatus) {
         return (
-            <><div className={styles.reserved_container}>
-                <Image src={red} alt="" className={styles.reserved_image}/>
-                <p className={styles.p_book_reserved}>Book reserved by member {props.title.memberId}
-                <br/> due date: {props.title.dueDate}
-                   <br/> <input className={styles.renew_button} type="submit" onClick={renewTitle} value="Renew"/>
-                    <input className={styles.renew_button} type="submit" onClick={returnTitle} value="Return"/></p>
-            </div></>
+            <>
+                <div className={styles.reserved_container}>
+                    <Image src={red} alt="" className={styles.reserved_image}/>
+                    <p className={styles.p_book_reserved}>Book reserved by member {props.title.memberId}
+                    <br/> due date: {props.title.dueDate}
+                       <br/> <input className={styles.renew_button} type="submit" onClick={renewTitle} value="Renew"/>
+                        <input className={styles.renew_button} type="submit" onClick={returnTitle} value="Return"/></p>
+                </div>
+            </>
         )
     } else return (
         <>

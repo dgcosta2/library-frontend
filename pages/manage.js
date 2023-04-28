@@ -47,7 +47,7 @@ const  Manage = () => {
                                    message: 'Please enter an email'})}
                            placeholder="Enter member's email"/>
                     <div className={styles.form_submit}>
-                        <input type="submit" value="save"/>
+                        <input type="submit" value="Save"/>
                     </div>
                 </form>
             </div>
@@ -81,7 +81,7 @@ const  Manage = () => {
                                    message: "Please enter the title's year of publication"})}
                            placeholder="Enter the year of publication"/>
                     <div className={styles.form_submit}>
-                        <input type="submit" value="save"/>
+                        <input type="submit" value="Save"/>
                     </div>
                 </form>
             </div>
