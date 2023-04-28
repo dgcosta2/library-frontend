@@ -65,6 +65,16 @@ const Reserved = (props) => {
         }
     }
 
+    const removeTitle = async () => {
+        console.log(props.title);
+        const response = await data.removeTitle(props.title);
+        if (response != null) {
+            alert("Book succesfully returned");
+        } else {
+            alert("Network error, please try again");
+        }
+    }
+
     if (props.title.reserveStatus) {
         return (
             <>
@@ -73,7 +83,7 @@ const Reserved = (props) => {
                     <p className={styles.p_book_reserved}>Book reserved by member {props.title.memberId}
                     <br/> due date: {props.title.dueDate}
                        <br/> <input className={styles.renew_button} type="submit" onClick={renewTitle} value="Renew"/>
-                        <input className={styles.renew_button} type="submit" onClick={returnTitle} value="Return"/></p>
+                        <input className={styles.renew_button} type="submit" onClick={removeTitle} value="Return"/></p>
                 </div>
             </>
         )
