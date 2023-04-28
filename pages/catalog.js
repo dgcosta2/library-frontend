@@ -4,6 +4,7 @@ import data from "@/data/data";
 import {useForm} from "react-hook-form";
 import styles from "@/styles/SearchBar.module.css";
 import BookCard from "@/components/BookCard";
+
 const Catalog = () => {
     const { register, handleSubmit, errors, reset} = useForm();
     const [searchField, setSearchField] = useState("");
@@ -18,6 +19,7 @@ const Catalog = () => {
                 }
             )
         }, []);
+
     const handleChange = (e) => {
         setSearchField(e.target.value);
     }
@@ -35,19 +37,26 @@ const Catalog = () => {
 
     return (
         <>
-            <h1>Catalog</h1>
-            <form className={styles.searchform}>
-                <input className={styles.searchBox}
-                       type="text" placeholder="Search"
-                       onChange={handleChange}/>
-            </form>
-            <div>
-                {filterTitles.map(title =>
-                    <BookCard key = {title.id} title = {title}/>)}
-            </div>
-        </>
-    )
 
-}
+            <h1 className={styles.catalogHeading}>Catalog</h1>
+
+                <form className={styles.searchform}>
+                    <input
+                        className={styles.searchBox}
+                        type="text"
+                        placeholder="Search"
+                        onChange={handleChange}
+                    />
+                </form>
+
+                <div className={styles.catalogLetters} >
+                    {filterTitles.map((title) => (
+                        <BookCard key={title.id} title={title} />
+                    ))}
+                </div>
+
+        </>
+    );
+};
 
 export default Catalog;

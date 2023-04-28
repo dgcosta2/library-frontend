@@ -36,7 +36,7 @@ const Members = () => {
 
     return (
         <>
-            <h1>Members</h1>
+            <h1 className={styles.catalogHeading}>Members</h1>
             <form className={styles.searchform}>
                 <input className={styles.searchBox}
                        type="text" placeholder="Search"

@@ -3,6 +3,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+
 }
 
 .card_table {
@@ -12,6 +13,7 @@
     border-style: none;
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     height: 150px;
+
 }
 
 .tag {
@@ -23,15 +25,18 @@
 .title_info {
     width: 200px;
     text-transform: none;
+
 }
 
 .view {
     text-align: center;
     justify-content: center;
     padding-left: 10px;
+
 }
 
 .view_titles {
     text-align: center;
     justify-content: center;
+
 }
