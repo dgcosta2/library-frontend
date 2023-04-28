@@ -28,7 +28,7 @@ let reserveTitle = (title, memberId) => {
                 }
             )}).then(response =>
             {
-                if (response.status == 200 || response.status == 201 || reponse.status == 204) return response.json();
+                if (response.status === 200 || response.status === 201 || response.status === 204) return true;
                 return null;
             })
                 // .then(id => id)
@@ -48,7 +48,7 @@ let renewTitle = (title) => {
             }
         }).then(response =>
         {
-            if (response.status == 200 || response.status == 201 || response.status == 204) return true;
+            if (response.status === 200 || response.status === 201 || response.status === 204) return true;
             return null;
         })
     )

@@ -11,10 +11,11 @@ import {useEffect, useState} from "react";
 
 const Reserved = (props) => {
     //State created for re-rendering purposes
+    const router = useRouter();
     const [update, setUpdate] = useState(0);
     const [viewMembers, setViewMembers] = useState(false);
     const [memberList, setMemberList] = useState([]);
-    const [selectedMember, setSelectedMember] = useState(null);
+    const [selectedMember, setSelectedMember] = useState(new Set(["Select Member"]));
 
     useEffect(() => {
         data.members()
@@ -25,18 +26,26 @@ const Reserved = (props) => {
     }, [])
 
     const handleClick = () => {
-        if (!viewMembers)
-            showMembers();
+        if (!viewMembers) {
+            setViewMembers(true);
+        }
+        else {
+            reserveTitle();
+        }
     }
 
-    const selectMember = (memberId) => {
-        setSelectedMember(memberList.filter(member => member.id === memberId).at(0));
-        console.log(selectedMember);
+    const reserveTitle = async () => {
+        console.log(props.title + selectedMember);
+        const response = await data.reserve(props.title,
+            selectedMember.values().next().value);
+        if (response != null) {
+            alert("Successful reservation!");
+        } else {
+            alert("Network error, try again soon");
+        }
     }
 
-    const showMembers = () => {
-        setViewMembers(true);
-    }
+
     const renewTitle = async () => {
         console.log(props.title);
         const response = await data.renew(props.title);
@@ -60,14 +69,15 @@ const Reserved = (props) => {
         <>
             <Image src={green} alt="" className={styles.reserved_image}/>
             <p className={styles.p_book_reserved}>Book available.
-                <input className={styles.renew_button} type="submit" onClick={showMembers} value="Reserve"/></p>
+                <input className={styles.renew_button} type="submit" onClick={handleClick} value="Reserve"/></p>
             {viewMembers?
                 <>
                     <Dropdown>
-                        <Dropdown.Button flat>Select Member</Dropdown.Button>
+                        <Dropdown.Button flat>{selectedMember}</Dropdown.Button>
                         <Dropdown.Menu aria-label="Dynamic options"
                                        items={memberList}
-                                       selectionMode="single">
+                                       selectionMode="single"
+                                       onSelectionChange={setSelectedMember}>
                             {(member) => (
                                 <Dropdown.Item
                                     key={member.id}
