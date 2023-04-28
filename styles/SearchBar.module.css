@@ -38,11 +38,10 @@
     padding: 0px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-left: 500px;
     margin-top: 15px;
+    margin-left: 500px;
     display: inline-block;
-    -webkit-text-stroke: 1px black;
-    text-stroke: 1px black;
+
 }
 
 .memberLetters{
@@ -52,11 +51,14 @@
     padding-left: 0px;
     padding-right: 60px;
     border-radius: 8px;
+    margin-left: 500px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-left: 600px;
     margin-top: 15px;
     display: inline-block;
-    -webkit-text-stroke: 1px black;
-    text-stroke: 1px black;
+
+}
+
+.bookcard_container {
+    display: flex;
 
 }

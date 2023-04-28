@@ -48,7 +48,6 @@ const Catalog = () => {
                         onChange={handleChange}
                     />
                 </form>
-
                 <div className={styles.catalogLetters} >
                     {filterTitles.map((title) => (
                         <BookCard key={title.id} title={title} />
