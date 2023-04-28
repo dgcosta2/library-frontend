@@ -3,6 +3,7 @@ import MemberCard from "@/components/MemberCard";
 import data from "@/data/data";
 import {set} from "react-hook-form";
 import styles from "@/styles/SearchBar.module.css";
+import BookCard from "@/components/BookCard";
 
 const Members = () => {
 
@@ -37,14 +38,21 @@ const Members = () => {
     return (
         <>
             <h1 className={styles.catalogHeading}>Members</h1>
+
             <form className={styles.searchform}>
-                <input className={styles.searchBox}
-                       type="text" placeholder="Search"
-                       onChange={handleChange}/>
+                <input
+                    className={styles.searchBox}
+                    type="text"
+                    placeholder="Search"
+                    onChange={handleChange}
+                />
             </form>
-            {filterTitles.map(member => (
-                <MemberCard key={member.id} member={member}/>
-            ))}
+
+            <div className={styles.memberLetters} >
+                {filterTitles.map(member => (
+                    <MemberCard key={member.id} member={member}/>
+                ))}
+            </div>
         </>
     )
 }
