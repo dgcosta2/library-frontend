@@ -82,7 +82,8 @@ const Reserved = (props) => {
             <div className={styles.reserved_container}>
             <Image src={green} alt="" className={styles.reserved_image}/>
             <p className={styles.p_book_reserved}>Book available.
-                <input className={styles.renew_button} type="submit" onClick={handleClick} value="Reserve"/></p>
+                <input className={styles.renew_button} type="submit" onClick={handleClick} value="Reserve"/>
+                <input className={styles.renew_button} type="submit" value="Remove"/> </p>
             {viewMembers?
                 <>
                     <Dropdown>

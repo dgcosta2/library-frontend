@@ -107,6 +107,32 @@ let saveTitle = (title) => {
     })
 }
 
+let removeTitle = (title) => {
+    return fetch(titleHost + "/titles/" + title.id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application-json'
+        }
+    }).then(response =>
+    {
+        if(response.status >= 200 && response.status < 300) return true;
+        else return null;
+    })
+}
+
+let removeMember = (member) => {
+    return fetch(memberHost + "/members/" + member.id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application-json'
+        }
+    }).then(response =>
+    {
+        if(response.status >= 200 && response.status < 300) return true;
+        else return null;
+    })
+}
+
 let data = {
     titles : findAllTitles,
     members : findAllMembers,
@@ -115,6 +141,8 @@ let data = {
     return: returnTitle,
     addMember: saveMember,
     addTitle: saveTitle,
+    removeTitle: removeTitle,
+    removeMember: removeMember,
     titlesByMember: findTitlesByMember
 }
 
