@@ -5,6 +5,7 @@ import styles from "@/styles/Reserved.module.css";
 import Link from "next/link";
 import data from "@/data/data";
 import {useRouter} from "next/router";
+import { Dropdown } from "@nextui-org/react";
 import {useEffect, useState} from "react";
 
 
@@ -24,11 +25,8 @@ const Reserved = (props) => {
     }, [])
 
     const handleClick = () => {
-        if (viewMembers) {
-
-        } else {
+        if (!viewMembers)
             showMembers();
-        }
     }
 
     const selectMember = (memberId) => {
@@ -42,7 +40,11 @@ const Reserved = (props) => {
     const renewTitle = async () => {
         console.log(props.title);
         const response = await data.renew(props.title);
-        setUpdate(update + 1);
+        if (response != null) {
+            alert("Successful renewal! Please refresh the page");
+        } else {
+            alert("Network error, try again soon");
+        }
     }
 
     if (props.title.reserveStatus) {
@@ -59,10 +61,28 @@ const Reserved = (props) => {
             <Image src={green} alt="" className={styles.reserved_image}/>
             <p className={styles.p_book_reserved}>Book available.
                 <input className={styles.renew_button} type="submit" onClick={showMembers} value="Reserve"/></p>
-            {viewMembers? <><label htmlFor="books">select a member:</label> <select  name="books" id="books">
-                {memberList.map(member =>
-                        <option key={member.id} value={member.name}>{member.name}</option>)}
-            </select></>:<></>}
+            {viewMembers?
+                <>
+                    <Dropdown>
+                        <Dropdown.Button flat>Select Member</Dropdown.Button>
+                        <Dropdown.Menu aria-label="Dynamic options"
+                                       items={memberList}
+                                       selectionMode="single">
+                            {(member) => (
+                                <Dropdown.Item
+                                    key={member.id}
+                                    color="default"
+                                    >
+                                    {member.name}
+                                </Dropdown.Item>
+                            )}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </> : <></>}
+            {/*{viewMembers? <><label htmlFor="books">select a member:</label> <select onChange={handleChange} name="books" id="books">*/}
+            {/*    {memberList.map(member =>*/}
+            {/*            <option key={member.id} value={member.name}>{member.name}</option>)}*/}
+            {/*</select></>:<></>}*/}
         </>
     )
 }
