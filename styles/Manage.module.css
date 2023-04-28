@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form_input {
+    background-color: white;
+    display: grid;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form_input input {
+    text-decoration: none;
+}
+
+.form_submit {
+
+}

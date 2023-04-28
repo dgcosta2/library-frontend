@@ -11,7 +11,6 @@ import {useEffect, useState} from "react";
 
 const Reserved = (props) => {
     //State created for re-rendering purposes
-    const router = useRouter();
     const [update, setUpdate] = useState(0);
     const [viewMembers, setViewMembers] = useState(false);
     const [memberList, setMemberList] = useState([]);
@@ -101,10 +100,6 @@ const Reserved = (props) => {
                         </Dropdown.Menu>
                     </Dropdown>
                 </> : <></>}
-            {/*{viewMembers? <><label htmlFor="books">select a member:</label> <select onChange={handleChange} name="books" id="books">*/}
-            {/*    {memberList.map(member =>*/}
-            {/*            <option key={member.id} value={member.name}>{member.name}</option>)}*/}
-            {/*</select></>:<></>}*/}
             </div>
         </>
     )

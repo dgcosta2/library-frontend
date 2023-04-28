@@ -22,4 +22,11 @@ header {
 h1 {
     margin-top: 10px;
     margin-left: 20px;
+    color: white;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: white;
 }
