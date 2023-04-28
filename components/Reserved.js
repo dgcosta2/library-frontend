@@ -56,17 +56,29 @@ const Reserved = (props) => {
         }
     }
 
+    const returnTitle = async () => {
+        console.log(props.title);
+        const response = await data.return(props.title);
+        if (response != null) {
+            alert("Book succesfully returned");
+        } else {
+            alert("Network error, please try again");
+        }
+    }
+
     if (props.title.reserveStatus) {
         return (
-            <>
+            <><div className={styles.reserved_container}>
                 <Image src={red} alt="" className={styles.reserved_image}/>
                 <p className={styles.p_book_reserved}>Book reserved by member {props.title.memberId}
                 <br/> due date: {props.title.dueDate}
-                   <br/> <input className={styles.renew_button} type="submit" onClick={renewTitle} value="Renew"/></p>
-            </>
+                   <br/> <input className={styles.renew_button} type="submit" onClick={renewTitle} value="Renew"/>
+                    <input className={styles.renew_button} type="submit" onClick={returnTitle} value="Return"/></p>
+            </div></>
         )
     } else return (
         <>
+            <div className={styles.reserved_container}>
             <Image src={green} alt="" className={styles.reserved_image}/>
             <p className={styles.p_book_reserved}>Book available.
                 <input className={styles.renew_button} type="submit" onClick={handleClick} value="Reserve"/></p>
@@ -93,6 +105,7 @@ const Reserved = (props) => {
             {/*    {memberList.map(member =>*/}
             {/*            <option key={member.id} value={member.name}>{member.name}</option>)}*/}
             {/*</select></>:<></>}*/}
+            </div>
         </>
     )
 }

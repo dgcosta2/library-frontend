@@ -1,6 +1,6 @@
 
-let titleHost = "http://localhost:8060";
-let memberHost = "http://localhost:8080";
+let titleHost = "https://title-service-production.up.railway.app";
+let memberHost = "https://member-service-production.up.railway.app";
 
 let findAllTitles = () => {
     return (
@@ -30,13 +30,7 @@ let reserveTitle = (title, memberId) => {
             {
                 if (response.status === 200 || response.status === 201 || response.status === 204) return true;
                 return null;
-            })
-                // .then(id => id)
-                // .catch(error => {
-                //     console.log(error);
-                //     return null;
-                // })
-    )
+            }))
 }
 
 let renewTitle = (title) => {
@@ -54,6 +48,23 @@ let renewTitle = (title) => {
     )
 }
 
+let returnTitle = (title) => {
+    return (
+        fetch(titleHost + "/titles/" + title.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }, body: JSON.stringify({
+                    reserveStatus: false,
+                    memberId: -1
+                }
+            )}).then(response =>
+        {
+            if (response.status === 200 || response.status === 201 || response.status === 204) return true;
+            return null;
+        }))
+}
+
 let findTitlesByMember = (member) => {
     return (
         fetch(titleHost + "/titles/members/" + member.id)
@@ -66,6 +77,7 @@ let data = {
     members : findAllMembers,
     reserve: reserveTitle,
     renew: renewTitle,
+    return: returnTitle,
     titlesByMember: findTitlesByMember
 }
 

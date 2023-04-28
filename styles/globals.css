@@ -6,6 +6,10 @@
     text-transform: capitalize;
 }
 
+body {
+    background-size: auto;
+    background: url("../public/background.jpg") no-repeat center;
+}
 header {
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     background-color: #cee4fe;
@@ -13,6 +17,7 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+
 
 h1 {
     margin-top: 10px;
